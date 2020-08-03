@@ -1,6 +1,6 @@
-ODIR=obj
+ODIR = obj
 _OBJ = openpad.o
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+OBJ = $(addprefix $(ODIR)/,$(_OBJ))
 OBJ_FINAL = $(OBJ:.o=.html)
 
 
@@ -12,7 +12,13 @@ all: $(OBJ)
 	cat $(OBJ) >> tmp
 	cat footer.html >> tmp
 	#rename from *.o to *html and move up directory '..'
-	mv tmp $(patsubst %,../%,$(_OBJ:.o=.html)) 
+	mv tmp $(addprefix ../,$(_OBJ:.o=.html)) 
+
+#cleaning up the metadata of jpeg images
+IMAGES = ../img
+sanitize_metadata:  
+	exiftool -geotag= $(IMAGES)
+
 
 .PHONY: clean
 
