@@ -1,2 +1,3 @@
 # this contains the test hugo site...
 test/
+*.o
