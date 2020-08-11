@@ -4,8 +4,9 @@ OBJ = $(addprefix $(ODIR)/,$(_OBJ))
 OBJ_FINAL = $(OBJ:.o=.html)
 
 
+FLAGS = toc
 $(ODIR)/%.o : %.md
-	markdown -o $@ $< 
+	markdown -f $(FLAGS) -o $@ $< 
 
 all: $(OBJ)
 	cat header.html > tmp
@@ -17,7 +18,7 @@ all: $(OBJ)
 #cleaning up the metadata of jpeg images
 IMAGES = ../img
 sanitize_metadata:  
-	exiftool -geotag= $(IMAGES)
+	exiftool -all= $(IMAGES)
 
 
 .PHONY: clean
