@@ -17,14 +17,13 @@ a:link {
 a:visited {
   color:#dc3
 }
-img {
-  max-width:650px;
-  padding: 0 10px
-}
-figcaption {
-  text-align:center;
-  font-size:14px
-}
+/* Image and caption */
+img{
+  width:650px;
+  max-width:100%;
+  padding:inherit;
+} 
+
 
 @media (prefers-color-scheme: dark) {
  body {
