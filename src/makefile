@@ -4,7 +4,7 @@ OBJ = $(addprefix $(ODIR)/,$(_OBJ))
 OBJ_FINAL = $(OBJ:.o=.html)
 
 
-FLAGS = toc
+FLAGS = toc,latex
 $(ODIR)/%.o : %.md
 	markdown -f $(FLAGS) -o $@ $< 
 
