@@ -1,6 +1,14 @@
-#Openpad Build
+# Openpad Build
 
 July 2020
+<br>
+Last Edited: August 2020
+
+Openpad is a open-source design for dance simulation games like *Dance Dance Revolution*
+and *Pump It Up*. Built with wood, Openpad is a DIY solution to achieve an
+arcade-like experience while supporting high customization, outperforming most commercial
+home pad solutions in durability, sensitivity and cost-effectiveness. I present my build
+below and document my observations and thoughts along the process.
 
 # Table of Contents
 1. [Intro](#Introduction)
@@ -19,7 +27,6 @@ July 2020
 
 I grew up with an arcade game called Dance Dance Revolution, which was a popular dancing game
 simulator from 1997. I played the  home console version on my PlayStation and cycled through 
-inferior soft, foam pads designed for causal home use. Flimsy fabric ripped easily and pads 
 were not well anchored, often drifting during play. Needless to say, the home dance pads paled 
 drastically when compared to hardened arcade pads, built out of rugged metal frames, with 
 welded support bars, with 1-inch thick acrylic panels and diffused lights to light up the dance
@@ -64,8 +71,11 @@ As a consequence of the primary goals, major design choices followed naturally:
 * Arduino for microcontroller
 
 The source code and documentation needed to reproduce this project is available on the
-Openpad project on [Github][1] originally pioneered by finalarcadia. I have forked and
-added a PCB design. 
+Openpad project on [Github][1] originally pioneered by
+[finalarcadia](https://github.com/finalarcadia). While finalarcadia made a build for Pump as
+well but here I only provide the build for 4 panels. My forked branch includes an
+additional PCB design and small changes. My design differs mostly in the use of modular
+panels, more sensitive sensors registration and more cost-effective circuit.  
 
 ## Frame
 
@@ -73,12 +83,12 @@ Metal is expensive. Metalworking tools -- also expensive.[^5] Wood? Cheap. A use
 from craigslist? $40. My good friend, KJ helped draft some designs in CAD. Inspired by
 games Arrow Vortex and Technomotion where all 9 arrows in the 3x3 grid were used in
 gameplay, a modular design which each a square would be a self-contained and attachable
-unit was designed. The idea was *if we wanted*, we could play Pump it Up or any arbitrary
-configuration!
+unit was designed. The idea was *if we wanted*, we could re-arrange our sensored panels in
+order to play Pump it Up or any other dance game! 
 
-![A single module on paper](./img/pad2018design.jpg)
+![](./img/panel.svg =30x200)
 
--> Old school DDR and PIU pads used two diagonal screws to secure the panel <-
+-> Why not build a universal controller to play all these great games <-
 
 The material of choice is 2x4 pine lumber, available in any US hardware store for as about as
 cheap as wood can get. The measurements in the design were not sized to 2x4 very well,
@@ -87,6 +97,11 @@ made by gluing four 2x4 beams together. Since 2x4's are meant to be used in cons
 buildings, it has rather rounder edges which I shaved off with the table saw. More wood
 scraps! In retrospect, it would have been better to modify the design to reduce the cuts
 needed. 
+
+![A single module on paper](./img/pad2018design.jpg)
+
+-> Old school DDR and PIU pads used two diagonal screws to secure the panel <-
+
 
 Building the individual modules became **very** monotonous and I almost injured myself
 twice while zoning out and neglecting safety. Exactly 9 squares brackets with glue butt
@@ -103,11 +118,15 @@ mind though, disassembly for transporting was an important feature at the time.
 
 ![A single module with the mounting holes for the sensor](./img/padsinglemodule.jpg)
 
--> The first module made. This one looks **much** better than the rest. <- 
+-> The first module made. This one looks **much** better than the rest. Note the mounting
+holes for the sensors are tapped for M6 bolts, the same hole size as the sensor<-
+
 
 ![The final assembled pad](./img/padend.jpg)
 
--> Attaching the alignment blocks. Notice the use of bricks for clamping. <-
+-> Attaching the alignment blocks. Notice the use of bricks for clamping. Note the sersors
+are tapped straight into the base<-
+
 
 ## Electronics
 ### Sensors
@@ -136,9 +155,32 @@ from the frame's uneven construction. Sometimes, just stading on the center pane
 trigger the other arrows! A temporary fix is to recalibrate and rezero the sensors while
 standing on the center panel. 
 
+I ordered the load cell sensors from various chinese suppliers through ebay. They're
+rather heavy and have a pair of 2x2 M6-threaded holes for mounting.
+
 ### Circuits
 The connections on a bread board were to shaky for me so I went straight to the
-protoboard. Screw-in terminals were used for the analog input signals.
+protoboard. Screw-in terminals were used for the analog input signals. The internal
+resistance of my 200kg sensors are about 50Ω (U-03A9). My DAC has 10 bits in the range of
+0-5V giving about 5/2^10 = 4.8 mV sensitivity. 
+
+Now we need to talk about the expected pressure we *intend* to measure. The average person
+in the world weighs 62 kg.[^weight] Assume that a person when standing, the weight is
+distributed evenly between the legs. For the purposes of a dance game, we can also assume
+that **less than half** of the weight is used to register a panel. Let's just say I want a
+We need sensitivity of 0.1 / 200 * 5V = sensitvity af 100g to register. We need sensitivity 
+of 0.1 / 200 * 5V = 2.5 mV is the maximum raw sensor threshold. *This is clearly not
+enough to be picked up by the DAC alone*. We need an amplifier to read the signal.
+
+A simple negative-feedback configuration with matched resistors of 1MΩ is used to achieve
+a gain of ...
+
+![op amp config](./img/padopamp.png)
+
+Finalarcadia used 4 instrumental op amps (INA125P) which cost ~$6 each on Digikey. I opted
+instead for a single LM324 which is only $0.48. Using resistors of 1MΩ gives about a gain
+of 200 which is more than enough. Instrumental amps are just  double staged op amps (3 for
+one) that offer lower noise itself, but my setup seems to work.  
 
 ### Of Noise and Entropy
 
@@ -208,12 +250,18 @@ New Features I want to add:
 a. [Github Source][1]
 b. Wheatstone Bridge & Load Cells on [Wikipedia][2]
 c. [Stepmania][4] and [user][3] [packs][5]
+d. Technomotion Ghetto.io interface on [github][6] useful bits on ddr/piu here too!
+e. [HackMyCab][7], a guide on modding and maintaining DDR machines
+
 
 [1]: https://github.com/nabulator/openpad "Github Source"
 [2]: https://en.wikipedia.org/wiki/Load_cell#Strain_gauge_load_cell "wheatstone bridge"
 [3]: http://itgpacks.com
 [4]: https://stepmaniax.com
 [5]: http://stepmaniaonline.net/
+[6]: https://github.com/kategray/technomotion-io/tree/master/docs
+[7]: https://www.hackmycab.com/
+[8]: https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-12-439 
 
 ## Footnotes
 
@@ -228,5 +276,6 @@ c. [Stepmania][4] and [user][3] [packs][5]
 [^5]: So not quite. But for this project, you would want thick beams and welding. It will
 	probably be more expensive. I also
   	know next to nothing about metalworking. 
+[^weight]: This [paper][8] approximates weights in the world
 
-<!--- vim: set tw=80 -->
+<!--- vim: set tw=90 -->
