@@ -2,7 +2,7 @@ SRC_PATH := ./
 OBJ_PATH := ./obj/
 TARGET_PATH := ../
 
-_OBJ := openpad.o beatmania.o
+_OBJ := openpad.o beatmania.o site.o nothing.o
 #OBJ := $(addprefix $(OBJ_PATH),$(_OBJ))
 FINAL := $(_OBJ:.o=.html)
 _FINAL := $(addprefix $(TARGET_PATH),$(FINAL))
