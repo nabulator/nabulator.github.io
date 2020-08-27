@@ -3,4 +3,4 @@ test/
 *.o
 *.html
 
-./img/original/
+img/original/
