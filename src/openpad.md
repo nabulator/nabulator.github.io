@@ -105,12 +105,12 @@ needed.
 
 Building the individual modules became **very** monotonous and I almost injured myself
 twice while zoning out and neglecting safety. Exactly 9 squares brackets with glue butt
-joints holding everthyng together. I was also sloppy with gluing and the panels weren't
+joints holding everything together. I was also sloppy with gluing and the panels weren't
 completely level with the floor. This would become an issue later when you string the pad
 together!
 
 Alignment is a big issue when dealing with modular blocks so I built the alignment blocks
-*first*, then glued then on while they were already coupled using heavy stones and brikcs
+*first*, then glued then on while they were already coupled using heavy stones and bricks
 to clamp.  There are two M6 screws used to hold each edge of the module. Threads were
 tapped directly into the thin wooden alignment blocks. This is fine when the pad is flat
 but when you hold the pad vertically, it is slightly wobbling at several joints. In my
@@ -124,7 +124,7 @@ holes for the sensors are tapped for M6 bolts, the same hole size as the sensor<
 
 ![The final assembled pad](./img/padend.jpg)
 
--> Attaching the alignment blocks. Notice the use of bricks for clamping. Note the sersors
+-> Attaching the alignment blocks. Notice the use of bricks for clamping. Note the sensors
 are tapped straight into the base<-
 
 
@@ -151,7 +151,7 @@ do the job. Here I use an opamp (which one?) that has four op amps.
 Why use a **analog** sensor? Because it allows you to configure arbitrary sensitivity in
 software! At least so goes the theory. The panels ended up being a little too sensitive!
 The sensors would sometimes register force from a diagonal module due to lateral forces
-from the frame's uneven construction. Sometimes, just stading on the center panel can
+from the frame's uneven construction. Sometimes, just standing on the center panel can
 trigger the other arrows! A temporary fix is to recalibrate and rezero the sensors while
 standing on the center panel. 
 
@@ -168,7 +168,7 @@ Now we need to talk about the expected pressure we *intend* to measure. The aver
 in the world weighs 62 kg.[^weight] Assume that a person when standing, the weight is
 distributed evenly between the legs. For the purposes of a dance game, we can also assume
 that **less than half** of the weight is used to register a panel. Let's just say I want a
-We need sensitivity of 0.1 / 200 * 5V = sensitvity af 100g to register. We need sensitivity 
+We need sensitivity of 0.1 / 200 * 5V = sensitivity of 100g to register. We need sensitivity 
 of 0.1 / 200 * 5V = 2.5 mV is the maximum raw sensor threshold. *This is clearly not
 enough to be picked up by the DAC alone*. We need an amplifier to read the signal.
 
@@ -184,7 +184,7 @@ one) that offer lower noise itself, but my setup seems to work.
 
 ### Of Noise and Entropy
 
-Because we're desiging an analog circuit we need to minimize our analog noise which our
+Because we're designing an analog circuit we need to minimize our analog noise which our
 microcontroller will read! Following standard analog design here wise.
 So make sure your sensors are shielded and your 5V clean. Keep wires short as possible.
 Another option is to use RC time constant to filter out noise but that could introduce
@@ -232,9 +232,18 @@ as well if not better than on my old foam pads. Some points taken:
 * Modular design needs more precision
 * USB  power considerations for circuit (typ. 100mA)
 * probably should get a safer table saw
+* Use 4 smaller 20kg sensors instead of one big 200 kg sensor
+
+On that last point, I have here a heat map of my Right panel readings. A gallon of water
+was placed at 2 inch intervals on a panel. You can probably guess where the tip of the
+sensor is residing. It's not perfect. The raw values are taken straight from the DAC in
+signed integer from -512 to 512. The pads are of course zeroed so no weight is registered
+as zero.
+
+![pad heat map](./img/right.png)
 
 A rebuild is definitely in the planning as I'm hoping to create another pad for the
-purpose of playing doubles or veruses!
+purpose of playing doubles or versus!
 
 ## Future Work
 There is a lot to do!
