@@ -11,6 +11,7 @@ home pad solutions in durability, sensitivity and cost-effectiveness. I present 
 below and document my observations and thoughts along the process.
 
 # Table of Contents
+
 1. [Intro](#Introduction)
 2. [Frame](#Frame)
 3. [Electronics](#Electronics)
@@ -21,7 +22,9 @@ below and document my observations and thoughts along the process.
 4. [Assembly](#Assembly)
 4. [Final Impressions](#Final-Impressions)
 4. [Future Work](#Future-Work)
-5. [Links](#Links)
+5. [Appendx](#Appendix)
+	1. [Links](#Links)
+	2. [Footnotes](#Footnotes)
 
 ## Introduction
 
@@ -254,7 +257,9 @@ New Features I want to add:
 3. Proper PCB
 4. Just use the better arduino
 
-# Links
+## Appendix
+
+### Links
 
 a. [Github Source][1]
 b. Wheatstone Bridge & Load Cells on [Wikipedia][2]
@@ -272,7 +277,7 @@ e. [HackMyCab][7], a guide on modding and maintaining DDR machines
 [7]: https://www.hackmycab.com/
 [8]: https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-12-439 
 
-## Footnotes
+### Footnotes
 
 [^1]: one only needs note its limited availability on second-hand markets, its *still* high price point, its dead-heavy weight, its voluminous spacious body, its 1000W energy hogging power supply, and its additional maintenance costs to reconsider).If you ever try moving a single 100kg pump it up pad up and down a narrow staircase? It has no places to grip and really awkward. 
 

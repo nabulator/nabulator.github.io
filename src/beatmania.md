@@ -13,7 +13,9 @@ unique.
 3. [The Keys](#The-Keys)
 4. [Turntable](#Turntable)
 4. [Future Work](#Future-Work)
-5. [Links](#Links)
+5. [Appendix](#append)
+	1. [Links](#links)
+	2. [Footnotes](#footnotes)
 
 ## Introduction
 
@@ -24,7 +26,6 @@ rhythm game so you better be following the rhythm. The game enjoyed enough popul
 Japan where it has spawned a bunch of related games both at Konami and abroad, and it is
 still being re-released in Japan.[^1]
 
-I started playing a flash Beatmania clone in 2012 called [BBR][3], on my keyboard of
 Then I gave it back. Back to the keyboard age.
 
 ## A Modular Design
@@ -113,30 +114,37 @@ The final turntable itself was made out 1/4" plywood with electric tape as the s
 Felt is probably a little better but slip-free rubber is probably the best. The encoder
 works great.
 
-# Future Work
+## Future Work
 
-Performance wise the controller is excellent. It's holds well under aggressive play and
-responds well. Most of my complaints are mechanical. There were a few failures in wire due
-to my poor crimping as well, but easily fixed.
+Functional-wise the controller is excellent. Buttons and turntables are responsive and
+feel just like the arcade. The controller is robust to aggressive play and feels solid.
+Most complaints I have are mechanical, largely due to my poor woods craftsmanship. There
+were a few failures in wire due to my poor crimping as well, but those were easily fixed.
 
 The alignment pins with magnets works poorly. This is probably because the wood itself is
 too heavy, and the magnets simply can't support more than 20 lb of weight when help
-vertically on one side.  The magnets *can* support that weight however they must be
-aligned very precisely. Since adding magnets was a afterthought, and I could only source
-one type of magnet to attach to wood (did not feel like using epoxy this time), precise
-alignment was difficult to achieve.
+vertically on one side.  The magnets *can* support that weight, however they must be
+aligned very precisely as they need to be making a solid contact with the mating metal.
+Since adding magnets was a afterthought, and I could only source one type of magnet to
+attach to wood (did not feel like using epoxy this time), precise alignment was difficult
+to achieve.
 
- The controller itself is rather large and unwieldy. Difficulty to hold in
-one hand and definitely not easily movable. A more compact and lighter controller may be
-desirable. The angular momentum of the turntable feels slightly off, it is a little light
-and the turntable itself is too light and wobbles slightly. Part of the reason is that the
-plate is only mounted to the bearing in two of the four locations.
+The controller itself is rather heavy and large. It is difficult to hold it in one hand
+and can fall apart due to it's weak modular connections. A more compact and lighter frame
+may be desirable. 
 
-# Links
+The angular momentum of the turntable feels slightly off, it is a little
+light and the turntable itself is too light and wobbles slightly. Part of the reason is
+that the plate is only mounted to the bearing in two of the four locations. Ideally,
+custom manufactured bearing with the correct mounting positions is ideal.
+
+## Appendix
+
+### Links
 
 a. [Remy Wiki][1], the authoritative fan-based Bemani site for English 
 b. These people make controllers if you don't want to build your own [gamo2][2]
-(unaffilitaed)
+(unaffiliated)
 c. [Beat Beat Revolution 3rd Gen][3] A flash simulator for beatmania
 d. [consandstuff github build][4] includes the builds for sdvx & iidx controllers
 e. [slagcoin.com][5] A great resource for building arcade style fight sticks 
@@ -148,7 +156,7 @@ e. [slagcoin.com][5] A great resource for building arcade style fight sticks
 [5]: https://www.slagcoin.com/joystick/introduction.html
 [6]: https://en.wikipedia.org/wiki/Incremental_encoder
 
-## Footnotes
+### Footnotes
 
 [^1]: There's a lot of releases. You can find the exact number on [remywiki][1] but even
       FIFA has only had a single release a year since 1993 while this one has had more than a
