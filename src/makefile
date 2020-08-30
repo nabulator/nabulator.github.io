@@ -7,23 +7,20 @@ _OBJ := openpad.o beatmania.o site.o nothing.o
 FINAL := $(_OBJ:.o=.html)
 _FINAL := $(addprefix $(TARGET_PATH),$(FINAL))
 
+all : $(_FINAL)
+
+# We use .o files to represent html output
 FLAGS := toc,footnote
-
-
 $(OBJ_PATH)%.o : $(SRC_PATH)%.md
 	markdown -f $(FLAGS) -o $@ $< 
 
-DEPS := $(SRC/PATH)header.html $(SRC_PATH)footer.html
-
-$(TARGET_PATH)%.html : $(OBJ_PATH)%.o  $(DEPS)
+# Now let's add the place the .o inside our html template
+MACROS   := macros.m4
+TEMPLATE := template.html.m4
+$(TARGET_PATH)%.html : $(OBJ_PATH)%.o  $(MACROS) $(TEMPLATE)
 	@echo $<
-	cat $(SRC_PATH)header.html > tmp
-	cat $< >> tmp
-	cat $(SRC_PATH)footer.html >> tmp
-	#rename from *.o to *html and move up directory '..'
-	mv tmp $(addprefix $(TARGET_PATH),$(<F:.o=.html))
-
-all : $(_FINAL)
+	m4 -P $(MACROS) $< $(TEMPLATE) > $@
+	# let's clutter the ../ directory
 
 #cleaning up the metadata of jpeg images
 IMAGES := ../img/
