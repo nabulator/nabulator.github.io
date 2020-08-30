@@ -1,3 +1,4 @@
+
 This site is built on Markdown and some scripts. Pretty much ghetto Jekyll. 
 
 1. Static (The O.G) Websites

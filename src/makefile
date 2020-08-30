@@ -9,6 +9,7 @@ _FINAL := $(addprefix $(TARGET_PATH),$(FINAL))
 
 FLAGS := toc,footnote
 
+
 $(OBJ_PATH)%.o : $(SRC_PATH)%.md
 	markdown -f $(FLAGS) -o $@ $< 
 
@@ -30,6 +31,7 @@ sanitize_metadata:
 	exiftool -all= $(IMAGES)
 
 .PHONY: clean
-
 clean:
 	rm -f $(OBJ_PATH)*.o *~
+
+
