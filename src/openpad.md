@@ -1,8 +1,6 @@
 # Openpad Build
 
 July 2020
-<br>
-Last Edited: August 2020
 
 Openpad is a open-source design for dance simulation games like *Dance Dance Revolution*
 and *Pump It Up*. Built with wood, Openpad is a DIY solution to achieve an
@@ -24,7 +22,6 @@ below and document my observations and thoughts along the process.
 4. [Future Work](#Future-Work)
 5. [Appendx](#Appendix)
 	1. [Links](#Links)
-	2. [Footnotes](#Footnotes)
 
 ## Introduction
 
@@ -277,9 +274,12 @@ e. [HackMyCab][7], a guide on modding and maintaining DDR machines
 [7]: https://www.hackmycab.com/
 [8]: https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-12-439 
 
-### Footnotes
 
-[^1]: one only needs note its limited availability on second-hand markets, its *still* high price point, its dead-heavy weight, its voluminous spacious body, its 1000W energy hogging power supply, and its additional maintenance costs to reconsider).If you ever try moving a single 100kg pump it up pad up and down a narrow staircase? It has no places to grip and really awkward. 
+[^1]: one only needs note its limited availability on second-hand markets, its *still*
+	  high price point, its dead-heavy weight, its voluminous spacious body, its 1000W
+	  energy hogging power supply, and its additional maintenance costs to
+	  reconsider).If you ever try moving a single 100kg pump it up pad up and down a
+	  narrow staircase? It has no places to grip and really awkward. 
 
 [^2]: These simfiles are of course, shared pretty much without concern for "digital rights" /s
 [^itg]: The StepmaniaX development team has a long and complicated history with DDR when it 
@@ -292,4 +292,5 @@ e. [HackMyCab][7], a guide on modding and maintaining DDR machines
   	know next to nothing about metalworking. 
 [^weight]: This [paper][8] approximates weights in the world
 
+TITLE(`Openpad Build')
 <!--- vim: set tw=90 -->

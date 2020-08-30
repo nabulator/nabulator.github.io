@@ -27,7 +27,6 @@ m4_ifdef(`__ROOT',, `m4_define(`__ROOT', `')')
 <body>
 <div>
     <header>
-        <h1>__TITLE</h1>
         </header>
     <article>
 m4_dnl
@@ -35,14 +34,16 @@ m4_divert(3)m4_dnl  --- Content will be placed here ---
 m4_dnl
     </article>
     <aside>
-      <h5>Other Pages</h5>
+<!--      <h3>Other Pages</center>
       <ul> <li> <a href="openpad.html"> Stepmania Pad </a></li>
       <li><a href="beatmania.html"> BMS Controller </a> </li> </ul>
-
-    </aside>
+-->
+    </aside> 
     <footer>
- <hr/>
+    <hr/>
         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2020
+    <br>
+    <p>Last modified: m4_esyscmd(`date +%F') </p>
     </footer>
 </div>
 
