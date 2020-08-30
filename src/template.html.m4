@@ -11,7 +11,7 @@ m4_ifdef(`__ROOT',, `m4_define(`__ROOT', `')')
     <title>__TITLE</title>
 
     m4_dnl  Google will often use this as its description of your page/site. Make it good.
-    <meta name="google-site-verification" content="">
+    <meta name="google-site-verification" content="designing arcade style controllers and other engineering nonsense">
     m4_dnl  Speaking of Google, don't forget to set your site up: http://google.com/webmasters
 
     <meta name="title" content="__TITLE">
