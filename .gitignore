@@ -3,5 +3,10 @@ test/
 *.o
 *.html
 
+# Media
 img/original/
+*.mp4
+
+# sitemap
 sitemap.xml
+
