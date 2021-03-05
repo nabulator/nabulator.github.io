@@ -1,0 +1,158 @@
+<!doctype html>
+
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>&lsquo;Modding a CRT&rsquo;</title>
+
+        <meta name="google-site-verification" content="designing arcade style controllers and other engineering nonsense">
+    
+    <meta name="title" content="&lsquo;Modding a CRT&rsquo;">
+    <meta name="description" content="I build garbage from garbage.">
+    <meta name="keywords" content="EE, DIY, woodworking, hacking">
+    <meta name="author" content="nabulator">
+    <meta name="Copyright" content="CC-BY 4.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./lolstyle.css">
+    
+</head>
+
+<body>
+<div>
+    <header>
+        </header>
+    <article>
+
+
+
+
+
+
+<a name="RGB-Modding-a-CRT"></a>
+<h1>RGB Modding a CRT</h1>
+
+<p>September 2020
+Many retro game enthusiasts would tell you that a Sony PVM (Professional Video Monitor) is
+the pinnacle of the game displays that offers visuals of the highest calibre in contrast
+precision and beauty. Built with probably the most advanced CRT technology ever created,
+these monitors sell for a boatload, seeing that the CRT (Cathode Ray Tube) business is all
+but dead since around the year 2010. Not to far before the demise of analog TV in the US.</p>
+
+<p>The few odd parts of the room that have not been cornered by the LCD market are 1) legacy
+airline industry 2) retrogaming and arcade enthusiasts. Sure enough, CRT has several
+advantages for how old and outdated it may now appear, with it&rsquo;s large rear end and loud
+eletric hum. Probably the most important point is its analog design. Without the need for
+often slower digital memory for high resolution output, we have a zero-lag TV. It also
+supports various analog quirks of older computers and video game consoles which targeted
+analog signals.</p>
+
+<p><img src="./img/tvmod_melee_c64tv.jpg" alt="c64 tv running smash melee with unbelievable contrast" /></p>
+
+<p style="text-align:center;"> While not a Sony PVM, this Commodore 64 Monitor was designed for text display allowing
+it to display constrast levels much higher than normal CRT TV sets</p>
+
+<p>A have an old Sony CRT monitor from around 1993. Not originally mine but I acquired it
+through an online marketplace. I discovered that it is possible to modify a consumer TV to
+give it the abilities to display arcade-quality pictures. You can find many comparisons at
+<a href="https://www.retrorgb.com">retrorgb</a> but conventional composite input pales ( :D ) comparably to RGB input. The
+retrorgb site also explains what exactly is RGB and how it differs from component.
+modification is described on this <a href="https://shmups.system11.org/viewtopic.php?f=6&amp;t=56155">shmup thread</a> and is rather straightforward.
+Effectively, since I couldn&rsquo;t source a PVM for cheap, I thought it would a fast and simple
+project to upgrade a consumer TV into this a superior form.</p>
+
+<a name="Theory"></a>
+<h2>Theory</h2>
+
+<p>The mod depends on the important fact that the CRT already has RGB input &ndash; but
+only for the On Screen Disploy (OSD), which is the overlay text that displays the channel
+number, volume bar and menu navigation. This can be simply verified <em>if</em> you have a
+Service Manual &ndash; which you may find on <a href="https://elektrotanya.com">elektrotanya</a>. Since the chip that
+generates this text (usually PLL controller) is discrete and different from the chip that
+coverts video input into high voltage controls to the guns (Jungle IC), the desired signal
+can be injected directly where the two circuits connect.</p>
+
+<p>You can&rsquo;t <strong>directly</strong> connect the signal of course. A good circuit will need to ipmedance
+match the input (75Ω) and a cap (0.1μF) to reject DC and accept video signals. A Blanker
+is the signal that is in charge of controlling the mask, allowing the actual signal to
+come through. We&rsquo;ll just tie the blanker signal to switch between 5V (always on) to ground
+(always off).</p>
+
+<p><img src="./img/tvmod_schematic.png" alt="schematic" /></p>
+
+<p>You also need to find a sync signal in here because RGB itself does not come with it.</p>
+
+<a name="Practice"></a>
+<h2>Practice</h2>
+
+<p>The difficult part of this project is that each CRT is different. Not all have RGB input
+to the jungle &ndash; some operate only Y/C (luma and chroma channels). On top of this, it is
+necessary to determine exactly where on the board the components are! A service manual
+with the schematic is extradinarily useful and here and oviates the need for reverse
+engineering, which can be annoying considering the high voltage nature of the tube while
+it is powered on. It is prudent not to explode anything while working with CRTs.</p>
+
+<p>Fortunately, I was able to find a schematic for my board. The basic block digram was 1x4
+pages while the main schematic itself was 2x4 pages for just the main board.</p>
+
+<a name="Closed-Captioning"></a>
+<h3>Closed Captioning</h3>
+
+<p><img src="./img/tvmod_cc_card.jpg" alt="Closed Captioning card" /></p>
+
+<p>I found a closed captioning daughterboard which provided an additional RGB input and sync
+into the input! This solution became evident: strip the connector from the board and
+design a <strong>new</strong> daughterboard to inject signals directly!</p>
+
+<p><img src="./img/tvmod_simple_injection.jpg" alt="my custom card" /></p>
+
+<p>Once the board was fabricated, I selected some RCA connectors and a screw-mount switch
+into the back of the TV. Wallah~ beauty.</p>
+
+<p><img src="./img/tvmod_casemount.jpg" alt="cable panel" /></p>
+
+<p>Did not label the invididual signals. I did use RCA connectors for this project as</p>
+
+<ol>
+<li>I had theses parts available</li>
+<li>BNC connectors are harder to find and I would need custom cables for everything</li>
+<li>It is fun to guess which signal is which</li>
+</ol>
+
+
+<p>I did actually adopt a scheme where the red connectors mark <code>Red</code> and <code>gReen</code> while
+the black connectors mark <code>Blue</code> and <code>sync</code>.</p>
+
+<a name="Cables"></a>
+<h2>Cables</h2>
+
+<p>To test I used my Sega Genesis (Megadrive for all you non-North Americans) and it looks
+great! Just need to build actual cables instead of sticking loose wires into the female
+connector.</p>
+
+<p>It will probably work even better for things like home computers that run on 240p or ones
+that output at 15kz like the Commodore Amiga.</p>
+
+<a name="Links"></a>
+<h2>Links</h2>
+
+<p></p>
+    </article>
+    <aside>
+<!--      <h3>Other Pages</center>
+      <ul> <li> <a href="openpad.html"> Stepmania Pad </a></li>
+      <li><a href="beatmania.html"> BMS Controller </a> </li> </ul>
+-->
+    </aside> 
+    <footer>
+    <hr/>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2020
+    <br>
+    <p>Last modified: 2021-03-04
+ </p>
+    </footer>
+</div>
+
+</body>
+</html>

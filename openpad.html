@@ -1,0 +1,385 @@
+<!doctype html>
+
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Openpad Build</title>
+
+        <meta name="google-site-verification" content="designing arcade style controllers and other engineering nonsense">
+    
+    <meta name="title" content="Openpad Build">
+    <meta name="description" content="I build garbage from garbage.">
+    <meta name="keywords" content="EE, DIY, woodworking, hacking">
+    <meta name="author" content="nabulator">
+    <meta name="Copyright" content="CC-BY 4.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./lolstyle.css">
+    
+</head>
+
+<body>
+<div>
+    <header>
+        </header>
+    <article>
+
+
+
+
+
+
+<a name="Openpad-Build"></a>
+<h1>Openpad Build</h1>
+
+<p>July 2020</p>
+
+<p>Openpad is a open-source design for dance simulation games like <em>Dance Dance Revolution</em>
+and <em>Pump It Up</em>. Built with wood, Openpad is a DIY solution to achieve an
+arcade-like experience while supporting high customization, outperforming most commercial
+home pad solutions in durability, sensitivity and cost-effectiveness. I present my build
+below and document my observations and thoughts along the process.</p>
+
+<a name="Table-of-Contents"></a>
+<h1>Table of Contents</h1>
+
+<ol>
+<li><a href="#Introduction">Intro</a></li>
+<li><a href="#Frame">Frame</a></li>
+<li><a href="#Electronics">Electronics</a>
+
+<ol>
+<li><a href="#Sensors">Sensors</a></li>
+<li><a href="#Circuits">Circuits</a></li>
+<li><a href="#Of-Noise-and-Entropy">Of Noise and Entropy</a></li>
+<li><a href="#Microcontroller">Microcontroller</a></li>
+</ol>
+</li>
+<li><a href="#Assembly">Assembly</a></li>
+<li><a href="#Final-Impressions">Final Impressions</a></li>
+<li><a href="#Future-Work">Future Work</a></li>
+<li><a href="#Appendix">Appendx</a>
+
+<ol>
+<li><a href="#Links">Links</a></li>
+</ol>
+</li>
+</ol>
+
+
+<a name="Introduction"></a>
+<h2>Introduction</h2>
+
+<p>I grew up with an arcade game called Dance Dance Revolution, which was a popular dancing game
+simulator from 1997. I played the  home console version on my PlayStation and cycled through
+were not well anchored, often drifting during play. Needless to say, the home dance pads paled
+drastically when compared to hardened arcade pads, built out of rugged metal frames, with
+welded support bars, with 1-inch thick acrylic panels and diffused lights to light up the dance
+floor. For most people, purchasing the real arcade game itself was out of the question.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>However, with the development of free-as-in-freedom software simulators such as the legendary
+<a href="http://itgpacks.com">Stepmania</a>, along with proliferation of fan-made content, simfiles, which have spread.<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+
+<p>Building arcade-style pads from scratch requires some labor but is feasible for an individual
+equipped with a modest tool set and skill set. It is a worthwhile endeavor to design work around
+functionality, durability and price constraints.</p>
+
+<p><img src="./img/blueshark.jpg" alt="an BlueShark pad with internal parts revealed" /></p>
+
+<p style="text-align:center;"> Maybe in the future, I will discuss discuss a teardown of this Blue Shark</p>
+
+<p>There do exist commercial &ldquo;hard&rdquo; dance pads that attempt to replicate arcade pads.
+Historically, two of the top-tier products include the Cobalt Flux pads and Blue Shark
+pads, both which are no longer manufactured and only available from second-hand markets.
+Presently, they are mid-tier products at a mid-range price point but inferior in quality or
+sensitivity or maintenance in one way or another. The old foam pads I had from DDRgame
+fall into the classification of mid-tier pads. Arcade-style <a href="https://stepmaniax.com">StepmaniaX</a> (SMX) pads are
+acquirable for new, although they are pricey (US $1400+shipping) and notoriously out of
+stock.<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup></p>
+
+<p>The primary goals for this build is to:</p>
+
+<ul>
+<li>Support High level play (highly sensitive panels)</li>
+<li>Support USB host for PC interface</li>
+<li>Be as cheap as possible</li>
+</ul>
+
+
+<p>As with any &lsquo;'cost-efficient&rsquo;&lsquo; project, the pad was built up from the materials available
+at hand or the cheapest possible materials available at the local hardware store. This
+contrasts to a typical engineering workflow in which you begin with a design, then specify
+a BOM (Bill of Materials), prototype and iterate.</p>
+
+<p>As a consequence of the primary goals, major design choices followed naturally:</p>
+
+<ul>
+<li>Wood is the material of the frame and panels</li>
+<li>Analog sensors for software-defined sensitivity</li>
+<li>Arduino for microcontroller</li>
+</ul>
+
+
+<p>The source code and documentation needed to reproduce this project is available on the
+Openpad project on <a href="https://github.com/nabulator/openpad" title="Github Source">Github</a> originally pioneered by
+<a href="https://github.com/finalarcadia">finalarcadia</a>. While finalarcadia made a build for Pump as
+well but here I only provide the build for 4 panels. My forked branch includes an
+additional PCB design and small changes. My design differs mostly in the use of modular
+panels, more sensitive sensors registration and more cost-effective circuit.</p>
+
+<a name="Frame"></a>
+<h2>Frame</h2>
+
+<p>Metal is expensive. Metalworking tools &ndash; also expensive.<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup> Wood? Cheap. A used miter saw
+from craigslist? $40. My good friend, KJ helped draft some designs in CAD. Inspired by
+games Arrow Vortex and Technomotion where all 9 arrows in the 3x3 grid were used in
+gameplay, a modular design which each a square would be a self-contained and attachable
+unit was designed. The idea was <em>if we wanted</em>, we could re-arrange our sensored panels in
+order to play Pump it Up or any other dance game!</p>
+
+<p><img src="./img/panel.svg" height="200" width="30" alt="" /></p>
+
+<p style="text-align:center;"> Why not build a universal controller to play all these great games</p>
+
+<p>The material of choice is 2x4 pine lumber, available in any US hardware store for as about as
+cheap as wood can get. The measurements in the design were not sized to 2x4 very well,
+thus numerous cuts were made to get the wood to shape! A rather generously thick base was
+made by gluing four 2x4 beams together. Since 2x4&rsquo;s are meant to be used in constructing
+buildings, it has rather rounder edges which I shaved off with the table saw. More wood
+scraps! In retrospect, it would have been better to modify the design to reduce the cuts
+needed.</p>
+
+<p><img src="./img/pad2018design.jpg" alt="A single module on paper" /></p>
+
+<p style="text-align:center;"> Old school DDR and PIU pads used two diagonal screws to secure the panel</p>
+
+<p>Building the individual modules became <strong>very</strong> monotonous and I almost injured myself
+twice while zoning out and neglecting safety. Exactly 9 squares brackets with glue butt
+joints holding everything together. I was also sloppy with gluing and the panels weren&rsquo;t
+completely level with the floor. This would become an issue later when you string the pad
+together!</p>
+
+<p>Alignment is a big issue when dealing with modular blocks so I built the alignment blocks
+<em>first</em>, then glued then on while they were already coupled using heavy stones and bricks
+to clamp.  There are two M6 screws used to hold each edge of the module. Threads were
+tapped directly into the thin wooden alignment blocks. This is fine when the pad is flat
+but when you hold the pad vertically, it is slightly wobbling at several joints. In my
+mind though, disassembly for transporting was an important feature at the time.</p>
+
+<p><img src="./img/padsinglemodule.jpg" alt="A single module with the mounting holes for the sensor" /></p>
+
+<p style="text-align:center;"> The first module made. This one looks <strong>much</strong> better than the rest. Note the mounting
+holes for the sensors are tapped for M6 bolts, the same hole size as the sensor</p>
+
+<p><img src="./img/padend.jpg" alt="The final assembled pad" /></p>
+
+<p style="text-align:center;"> Attaching the alignment blocks. Notice the use of bricks for clamping. Note the sensors
+are tapped straight into the base</p>
+
+<a name="Electronics"></a>
+<h2>Electronics</h2>
+
+<a name="Sensors"></a>
+<h3>Sensors</h3>
+
+<p>Up to this day, DDR and PIU have used rubber digital sensors that are actuated by a metal
+bracket underneath the acrylic panel. The bracket only allows vertical motion to be
+registered. Pad maintenance will inevitably require padding the space to change
+sensitivity thresholds.<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup> A new approach by the StepmaniaX team is their use of analog
+sensors: load cells or strain gauges that can detect minute tension or compression in the
+metal structure itself!  The sensors used in StepmaniaX and this project are beam shaped,
+which allows you to mount the panel on the other side of the beam. I used some rubber feet
+to hold on the panel and also allows for adjusting of tension.</p>
+
+<p><img src="./img/padloadsensor.jpg" alt="load cell" /></p>
+
+<p style="text-align:center;"> Testing the load cell circuit</p>
+
+<p>Because the load cell uses a <a href="https://en.wikipedia.org/wiki/Load_cell#Strain_gauge_load_cell" title="wheatstone bridge">Wheatstone bridge</a>, the output of the signal is in
+microvolts, too small to be measured by any microcontroller. We need to use a amplifier to
+do the job. Here I use an opamp (which one?) that has four op amps.</p>
+
+<p>Why use a <strong>analog</strong> sensor? Because it allows you to configure arbitrary sensitivity in
+software! At least so goes the theory. The panels ended up being a little too sensitive!
+The sensors would sometimes register force from a diagonal module due to lateral forces
+from the frame&rsquo;s uneven construction. Sometimes, just standing on the center panel can
+trigger the other arrows! A temporary fix is to recalibrate and rezero the sensors while
+standing on the center panel.</p>
+
+<p>I ordered the load cell sensors from various chinese suppliers through ebay. They&rsquo;re
+rather heavy and have a pair of 2x2 M6-threaded holes for mounting.</p>
+
+<a name="Circuits"></a>
+<h3>Circuits</h3>
+
+<p>The connections on a bread board were to shaky for me so I went straight to the
+protoboard. Screw-in terminals were used for the analog input signals. The internal
+resistance of my 200kg sensors are about 50Ω (U-03A9). My DAC has 10 bits in the range of
+0-5V giving about 5/2<sup>10</sup> = 4.8 mV sensitivity.</p>
+
+<p>Now we need to talk about the expected pressure we <em>intend</em> to measure. The average person
+in the world weighs 62 kg.<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup> Assume that a person when standing, the weight is
+distributed evenly between the legs. For the purposes of a dance game, we can also assume
+that <strong>less than half</strong> of the weight is used to register a panel. Let&rsquo;s just say I want a
+We need sensitivity of 0.1 / 200 * 5V = sensitivity of 100g to register. We need sensitivity
+of 0.1 / 200 * 5V = 2.5 mV is the maximum raw sensor threshold. <em>This is clearly not
+enough to be picked up by the DAC alone</em>. We need an amplifier to read the signal.</p>
+
+<p>A simple negative-feedback configuration with matched resistors of 1MΩ is used to achieve
+a gain of &hellip;</p>
+
+<p><img src="./img/padopamp.png" alt="op amp config" /></p>
+
+<p>Finalarcadia used 4 instrumental op amps (INA125P) which cost ~$6 each on Digikey. I opted
+instead for a single LM324 which is only $0.48. Using resistors of 1MΩ gives about a gain
+of 200 which is more than enough. Instrumental amps are just  double staged op amps (3 for
+one) that offer lower noise itself, but my setup seems to work.</p>
+
+<a name="Of-Noise-and-Entropy"></a>
+<h3>Of Noise and Entropy</h3>
+
+<p>Because we&rsquo;re designing an analog circuit we need to minimize our analog noise which our
+microcontroller will read! Following standard analog design here wise.
+So make sure your sensors are shielded and your 5V clean. Keep wires short as possible.
+Another option is to use RC time constant to filter out noise but that could introduce
+delay. Design a PCB and use bypass capacitors &ndash; use a function generator and oscilloscope
+to verify clean switching in your DAC.</p>
+
+<p><strong>Disclaimer: Actually, I didn&rsquo;t do any of those things and my pad works great.</strong></p>
+
+<a name="Microcontroller"></a>
+<h3>Microcontroller</h3>
+
+<p>Arduino is cheap and easy to program. The Arduino Uno (ATmega328 chip) is not powerful
+enough to support USB profiling by it&rsquo;s own so you need to reprogram the side ATmega16u2
+chip to use the secondary chip as a USB host. Unfortunately, the latency is quite high for
+input (~50ms) and debugging a chore. To switch between a keyboard and programmer function,
+you need to short a jumper pin and reconnect the USB
+every time. A more powerful Arduino Leonardo or even the Pro Micro or Pico is recommended.</p>
+
+<p>It is wise to add LED indicators as debugging via the Serial console can prove annoying.
+Nothing like realtime visual feedback.</p>
+
+<p><img src="./img/padbadeletronics.jpg" alt="circuits" /></p>
+
+<p>You see two arduinos here because one of them is just providing power. I think there
+shouldn&rsquo;t be a need for this but USB limits to 100mA by default and my op amp may draw up
+to 50 mA of power. The arduino board itself also needs 50 mA so it&rsquo;s a close call and I
+was definitely having stability issues where only a subset of the op-amps worked when
+everything was powered through my laptop. The use of arduino pro micro or nano will have
+lower power footprint than the uno.</p>
+
+<a name="Assembly"></a>
+<h2>Assembly</h2>
+
+<p><img src="./img/padwithpanels.jpg" alt="assembly" /></p>
+
+<p>The panels were hand cut from a old projector TV. The plastic itself was only 1/32 &ldquo; at
+most so I supplemented it with &frac34;&rdquo; of MDF. Alternatively, &frac34;" acrylic
+panels or &frac12;" polycarbonate sheets and cut them on a bandsaw. It turns it it actually
+hurts to play bare foot.</p>
+
+<a name="Final-Impressions"></a>
+<h2>Final Impressions</h2>
+
+<p>Not bad for a first prototype. The whole design needs a reworking but I can perform just
+as well if not better than on my old foam pads. Some points taken:</p>
+
+<ul>
+<li>Modular design needs more precision</li>
+<li>USB  power considerations for circuit (typ. 100mA)</li>
+<li>probably should get a safer table saw</li>
+<li>Use 4 smaller 20kg sensors instead of one big 200 kg sensor</li>
+</ul>
+
+
+<p>On that last point, I have here a heat map of my Right panel readings. A gallon of water
+was placed at 2 inch intervals on a panel. You can probably guess where the tip of the
+sensor is residing. It&rsquo;s not perfect. The raw values are taken straight from the DAC in
+signed integer from -512 to 512. The pads are of course zeroed so no weight is registered
+as zero.</p>
+
+<p><img src="./img/right.png" alt="pad heat map" /></p>
+
+<p>A rebuild is definitely in the planning as I&rsquo;m hoping to create another pad for the
+purpose of playing doubles or versus!</p>
+
+<a name="Future-Work"></a>
+<h2>Future Work</h2>
+
+<p>There is a lot to do!
+New Features I want to add:</p>
+
+<ol>
+<li>Lighting (externally powered LED&rsquo;s)</li>
+<li>Thinner, flexible transparent panels with better mounting onto frame</li>
+<li>Proper PCB</li>
+<li>Just use the better arduino</li>
+</ol>
+
+
+<a name="Appendix"></a>
+<h2>Appendix</h2>
+
+<a name="Links"></a>
+<h3>Links</h3>
+
+<ol type="a">
+<li><a href="https://github.com/nabulator/openpad" title="Github Source">Github Source</a></li>
+<li>Wheatstone Bridge &amp; Load Cells on <a href="https://en.wikipedia.org/wiki/Load_cell#Strain_gauge_load_cell" title="wheatstone bridge">Wikipedia</a></li>
+<li><a href="https://stepmaniax.com">Stepmania</a> and <a href="http://itgpacks.com">user</a> <a href="http://stepmaniaonline.net/">packs</a></li>
+<li>Technomotion Ghetto.io interface on <a href="https://github.com/kategray/technomotion-io/tree/master/docs">github</a> useful bits on ddr/piu here too!</li>
+<li><a href="https://www.hackmycab.com/">HackMyCab</a>, a guide on modding and maintaining DDR machines</li>
+</ol>
+
+
+<p></p>
+
+<!--- vim: set tw=90 -->
+
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+one only needs note its limited availability on second-hand markets, its <em>still</em>
+  high price point, its dead-heavy weight, its voluminous spacious body, its 1000W
+  energy hogging power supply, and its additional maintenance costs to
+  reconsider).If you ever try moving a single 100kg pump it up pad up and down a
+  narrow staircase? It has no places to grip and really awkward.<a href="#fnref:1" rev="footnote">&#8617;</a></li>
+<li id="fn:2">
+These simfiles are of course, shared pretty much without concern for &ldquo;digital rights&rdquo; /s<a href="#fnref:2" rev="footnote">&#8617;</a></li>
+<li id="fn:3">
+The StepmaniaX development team has a long and complicated history with DDR when it
+released ITG in 2005. What&rsquo;s notable about the SMX pads themselves is they feature an
+additional center arrow, but it&rsquo;s modular design allows for quick swapping.<a href="#fnref:3" rev="footnote">&#8617;</a></li>
+<li id="fn:4">
+So not quite. But for this project, you would want thick beams and welding. It will
+probably be more expensive. I also
+know next to nothing about metalworking.<a href="#fnref:4" rev="footnote">&#8617;</a></li>
+<li id="fn:5">
+Arcade pads are commonly &lsquo;tape-modded&rsquo; or penny-modded to achieve the same effect.
+It works well but can be prone to fluctuate.<a href="#fnref:5" rev="footnote">&#8617;</a></li>
+<li id="fn:6">
+This <a href="https://bmcpublichealth.biomedcentral.com/articles/10.1186/1471-2458-12-439">paper</a> approximates weights in the world<a href="#fnref:6" rev="footnote">&#8617;</a></li>
+</ol>
+</div>
+
+    </article>
+    <aside>
+<!--      <h3>Other Pages</center>
+      <ul> <li> <a href="openpad.html"> Stepmania Pad </a></li>
+      <li><a href="beatmania.html"> BMS Controller </a> </li> </ul>
+-->
+    </aside> 
+    <footer>
+    <hr/>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2020
+    <br>
+    <p>Last modified: 2021-03-04
+ </p>
+    </footer>
+</div>
+
+</body>
+</html>
