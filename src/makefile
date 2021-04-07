@@ -25,7 +25,7 @@ $(TARGET_PATH)%.html : $(OBJ_PATH)%.o  $(MACROS) $(TEMPLATE)
 #cleaning up the metadata of jpeg images
 IMAGES := ../img/
 sanitize_metadata:  
-	exiftool -all= $(IMAGES)
+	exiftool -all= $(IMAGES) -v
 
 .PHONY: clean
 clean:
