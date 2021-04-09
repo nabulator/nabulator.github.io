@@ -4,6 +4,8 @@ m4_dnl  Prepare some default values. If we have not defined a __TITLE macro in
 m4_dnl  the content, the page will be nabulator
 m4_ifdef(`__TITLE',, `m4_define(`__TITLE', `nabulator')')
 m4_ifdef(`__ROOT',, `m4_define(`__ROOT', `')')
+m4_ifdef(`__DESCRIPTION',, `m4_define(`__DESCRIPTION', `I build garbage from garbage.')')
+m4_ifdef(`__ICON',, `m4_define(`__ICON', `favicon.png')')
 
 <head>
     <meta charset="utf-8">
@@ -11,15 +13,21 @@ m4_ifdef(`__ROOT',, `m4_define(`__ROOT', `')')
     <title>__TITLE</title>
 
     m4_dnl  Google will often use this as its description of your page/site. Make it good.
-    <meta name="google-site-verification" content="designing arcade style controllers and other engineering nonsense">
+    <meta name="google-site-verification" content="designing arcade style controllers and other random tech stuff">
     m4_dnl  Speaking of Google, don't forget to set your site up: http://google.com/webmasters
 
     <meta name="title" content="__TITLE">
-    <meta name="description" content="I build garbage from garbage.">
-    <meta name="keywords" content="EE, DIY, woodworking, hacking">
+    <meta name="description" content="__DESCRIPTION">
+    <meta name="keywords" content="EE, DIY, woodworking, hacking, bemani, arcade">
     <meta name="author" content="nabulator">
     <meta name="Copyright" content="CC-BY 4.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="__TITLE" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nabulator.com/__PAGEURL" />
+    <meta property="og:image" content="__ICON" />
+
     <link rel="stylesheet" href="./lolstyle.css">
     
 </head>

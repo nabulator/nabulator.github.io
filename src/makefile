@@ -19,8 +19,10 @@ MACROS   := macros.m4
 TEMPLATE := template.html.m4
 $(TARGET_PATH)%.html : $(OBJ_PATH)%.o  $(MACROS) $(TEMPLATE)
 	@echo $<
-	m4 -P $(MACROS) $< $(TEMPLATE) > $@
-	# let's clutter the ../ directory
+	
+	@# Define a macro __PAGEURL to point to target
+	m4 -P $(MACROS) -D__PAGEURL=$(subst $(TARGET_PATH),,$@) $< $(TEMPLATE) > $@
+	@# let's clutter the ../ directory
 
 #cleaning up the metadata of jpeg images
 IMAGES := ../img/
