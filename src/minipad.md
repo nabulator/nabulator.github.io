@@ -90,7 +90,7 @@ are faster to install.
 I use sensor mounts bring the sensor closer to the surface since my panels are
 only 3/8" or ~10mm while my center panel rests on top of the base and protrudes
 3/4" outwards. Using some plywood and some cheap craft foam did the trick to
-make give me arbitrary spacing adjustment. [Domnick][5] takes a similar approach
+make give me arbitrary spacing adjustment. [Dominick][5] takes a similar approach
 but uses plastic spacers which are laboriously hand-cut. Prompts to him for
 that.
 
@@ -98,7 +98,7 @@ I wanted adjustable sensor heights because it means I can pretend I am playing
 on DDR 3rd Mix cabinet or SMX cabs. Having played on both, I can say I like the
 feeling of both! As a relevant side note, I would like to mention that Zetoroux
 likes the panels to be 3 credit cards lower than the center, which replicates
-the kind of feeling you'd get on a DDR X cabinet [[video]][8]. Flush or raised
+the kind of feeling you'd get on a DDR X2 cabinet [[video]][8]. Flush or raised
 panels are also possible.
 
 ![Sensor mounts](./img/pad2_baseraisers.jpg)
@@ -191,8 +191,18 @@ The underbelly which is exposed at the moment.
 
 ![The final pad](./img/pad2_final.jpg)
 
-It works well for stamina and timing. Maybe I'll upload a video or stream or
-something. 
+It works well for stamina and timing, if your movements are minimal. Again, the
+primary issue is the small size of the base and panels, which can cause
+wobbling if you either step near the edges of the pad causing it to tilt and
+shift during play. The supporting panels aren't glued into place, so the pads
+are also rather noisy compared to real arcade panels (but less so compared to
+pads that aren't balanced -- looking at *you* 8otb machine). 
+
+Playing on carpet is annoying but less so than tiled stone flooring, due to the
+excessive movement. Still, not bad for testing out FSRs and finding a
+comfortable mechanical adjustments for a desirable final pad build. The
+experiment gives me the confidence and experience needed to go full out on the
+next prototype.
 
 ## Future Work
 Building a full sized pads with FSRs, using multiple FSRs, maybe custom PCB,

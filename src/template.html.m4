@@ -50,7 +50,7 @@ m4_dnl
     </aside> 
     <footer>
     <hr/>
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2020
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2021
     <br>
     <p>Last modified: m4_esyscmd(`date +%F') </p>
     </footer>
