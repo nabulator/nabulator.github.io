@@ -24,9 +24,10 @@ m4_ifdef(`__ICON',, `m4_define(`__ICON', `favicon.png')')
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta property="og:title" content="__TITLE" />
+    <meta property="og:description" content="__DESCRIPTION" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nabulator.com/__PAGEURL" />
-    <meta property="og:image" content="__ICON" />
+    <meta property="og:image" content="https://nabulator.com/img/__ICON" />
 
     <link rel="stylesheet" href="./lolstyle.css">
     

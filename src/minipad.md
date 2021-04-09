@@ -244,3 +244,6 @@ h. Stamina Nation Discord #pad [pubilc invite][9]
         disconnection. A better way to attach the FSR. 
 
 
+TITLE(Portable Travel Pad with FSR Sensors)
+ICON(pad2_banner.png)
+DESCRIPTION(I build a travel pad to travel and pad my website)

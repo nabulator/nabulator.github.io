@@ -3,10 +3,10 @@
 The internet is a vast sea of viral memes and strange curiosities. But like the real
 ocean, it can be difficult to navigate, to search and index. Netizens typically flock to
 established centralized news sites and social media pages to more easily connect with
-others. But at the beginning, the net was decentralized and fragmented and hetergenous. 
+others. But at the beginning, the net was decentralized and fragmented and heterogeneous. 
 
-Just as it is important in real life to form an identity to which to attach yourself, I have
-deemed this part of the internet, or at least this domain name, or even just the name
+Just as it is important in real life to form an identity to which to attach yourself, I
+have deemed this part of the internet, or at least this domain name, or even just the name
 "nabulator" for myself. The name itself is just a sequence of letters and is by no means
 unique, just like real names. I am sure there are many other people who call themselves
 "nabulator" or use it's name but not everyone out there is me. 
