@@ -19,6 +19,7 @@ time travel. sorry~
 
 1. [Intro](#Introduction)
 2. [Frame](#Frame)
+	1. [Sensor Mounts](#Sensor-Mounts)
 3. [Electronics](#Electronics)
 	1. [Sensors](#Sensors)
 	2. [Circuits](#Circuits)
@@ -27,6 +28,8 @@ time travel. sorry~
 4. [Future Work](#Future-Work)
 5. [Appendix](#Appendix)
 	1. [Links](#Links)
+	2. [Bill Of Materials](#Bill-of-Materials)
+	2. [Footnotes](#Footnotes)
 
 ## Introduction
 
@@ -86,7 +89,7 @@ threads directly into the wood itself but I wanted to try inserts this time.
 It's not clear if one is better than the other for this application but inserts
 are faster to install.
 
-## Sensor Mounts
+### Sensor Mounts
 
 I use sensor mounts bring the sensor closer to the surface since my panels are
 only 3/8" or ~10mm while my center panel rests on top of the base and protrudes
@@ -238,6 +241,56 @@ h. Stamina Nation Discord #pad [pubilc invite][9]
 [8]: http://nabulator.com/jonx_padthick.mp4
 [9]: https://discord.gg/tKaVTMnz 
 
+### Bill of Materials
+By popular request, I have complied this table for reference. Note it does not
+include any tools I have used including woodworking tools, soldering irons,
+crimpers, etc. Because I am lazy, I prioritized using what I had accumulated
+from other projects or part bins instead of buying a better more specialized
+part.
+
+I hesistate to provide detailed instructions as I want to inspire rather than
+instruct. They are definitely alternative and _better_ materials, methods and so
+forth, to arrive at an ideal pad. Nonetheless, for people who are just getting
+started, this is meant to serve as general guidance. As such, I have ballparked
+the prices to give you a reasonable way to play catch in the ball park.
+
+
+| Part | Source | Cost | 
+| ---  | ---    | ---:  |
+| 2x4  | local hardware | 10 | 
+| plywood  | local hardware | 10 | 
+| #10-24 screws  | McMaster Carr | 8 | 
+| #10-24 screw wood insert  | McMaster Carr | 7 | 
+| foam sheet  | art store | 5 | 
+| wooden fluted dowels | local hardware | 4 | 
+| center panel 3/4" wood slab | localhardware | 7 | 
+| Side panel acrylic 3/16" | junk | 20? | 
+| FSR sensors | interlink | 25 | 
+| |||
+| arduino leonardo | amazon | 10 |
+| header pins 0.1" pitch | digikey | 3 |
+| JST XH 2pin set | aliexpress | 7 |
+| resistors | digikey | 1 |
+| Transistors TIP 121 | digikey | 4 | 
+| led strip | aliexpress | 4 | 
+| protoboard | aliexpress | 5 |
+| wire (22 gauge) | ebay | 18 | 
+
+**Total: ~150**
+
+In addition to these materials, you may find it helpful to have something that
+can / know someone who can:
+
+* cuts wood / plastic
+* drills holes
+* planes wood
+* glues wood 
+* build circuits
+* installs and removes screws
+* measures voltages and electrical connectivity
+
+
+### Footnotes
 [^1]: I know that electronic piano keyboards have pressure sensitivity detection
        to simulate loudness dynamics of a real piano's hammer action -- through it's
        strangely titled *velocity*. Turns out these keyboards don't have a singular
