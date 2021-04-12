@@ -5,13 +5,13 @@ March 2021
 A full-sized dance pad can be a bit heavy and unwieldy so why not make a mini
 pad. Some people call this a *travel pad*, which is an acceptable name if you're
 already deep in the dance community. A quick search reveals that it's actually
-more commonly used to a pad to change baby's diapers. Perhaps the term mini-pad
-is snappier and memorable.  :D
+more commonly used to mean cloth pad used to change baby's diapers. Perhaps the
+term mini-pad is snappier and memorable.  :D
 
 Unlike a real pad, you can tuck it under your arm pits and carry it like a
-skateboard and ride it to the moon.  Portable and functional. Sure it slips a
+skateboard and ride it to the moon.  Portable and functional. Sure, it slips a
 bit during playing but nothing a few heavy bricks can't handle. Also, does no
-time travel. Sorry
+time travel. sorry~
 
 ![fake banner](./img/pad2_banner.png)
 
@@ -34,7 +34,8 @@ There are so many existing resources on why you would be interested in using
 Force-Sensing Resistors. The technology is relatively new, being developed in
 1977 and manufactured from the 90s. The operation of the force depends on
 _quantum tunneling_. The main advantage of the sensor is its small size, its
-paper thin, low cost and robust sensitivity.  Compared to the load cells
+paper thin profile, its low cost and robust operating conditions and its high
+sensitivity.  Compared to the load cells
 used in [openpad](openpad.html), FSRs are easier to integrate into firmware 
 with no more than a DC power line (5V) and a single resistor. [^1]
 
@@ -73,7 +74,7 @@ used with a jig and base is glued. A full sized solid 3/4" panel is used as the
 center. This center was conveniently left over from the first pad I made. It's
 important that the base you fabricate lies flat and does not wobble on the
 surface you intend to play on. Alternatively, you can use your pad over some
-foam pads or other compressing surface but this workaround really detracts from 
+foam pads or other compressing surface, but this workaround detracts from 
 its portability. 
 
 ![Bare pad with just the center panel](./img/pad2_justbase.jpg)
@@ -91,12 +92,12 @@ I use sensor mounts bring the sensor closer to the surface since my panels are
 only 3/8" or ~10mm while my center panel rests on top of the base and protrudes
 3/4" outwards. Using some plywood and some cheap craft foam did the trick to
 make give me arbitrary spacing adjustment. [Dominick][5] takes a similar approach
-but uses plastic spacers which are laboriously hand-cut. Prompts to him for
+but uses plastic spacers which are laboriously hand-cut. Props to him for
 that.
 
 I wanted adjustable sensor heights because it means I can pretend I am playing
 on DDR 3rd Mix cabinet or SMX cabs. Having played on both, I can say I like the
-feeling of both! As a relevant side note, I would like to mention that Zetoroux
+feeling of both! As a relevant side note, I would like to mention that Zetorux
 likes the panels to be 3 credit cards lower than the center, which replicates
 the kind of feeling you'd get on a DDR X2 cabinet [[video]][8]. Flush or raised
 panels are also possible.
@@ -118,7 +119,7 @@ Pretty straightforward compared to Load cells due to simpler circuits.
 The sensor form factor I ordered of the
 [Interlink Shop][4] is the **FSR Model 408 500mm** length with tab terminators.
 The substrate the sensor is printed on is rather thin and bendable. Care is
-needed to ensure the two contacts don't short and a proper connector is probably
+needed to ensure the two contacts don't short -- a proper connector is probably
 the best option. Since Interlink failed to send me sensors with the female
 terminator (as I had specified in my order), I soldered the damn thing directly
 to wires. There exists a method to terminate the sensors with electric tape but
@@ -128,7 +129,7 @@ There are couple of [manufacturer recommendations][7]. But I can give you the
 **thick** to **thin**:
 
 - Use a firm and flat mounting surface
-- Use a soft rubber or spring to actuate
+- Use a soft rubber or springy material to actuate
 - Do **NOT** bend, dent or kink
 
 ### Circuit
