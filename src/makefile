@@ -2,7 +2,7 @@ SRC_PATH := ./
 OBJ_PATH := ./obj/
 TARGET_PATH := ../
 
-_OBJ := openpad.o beatmania.o crtmod.o site.o nothing.o
+_OBJ := openpad.o beatmania.o crtmod.o site.o nothing.o about.o	minipad.o
 #OBJ := $(addprefix $(OBJ_PATH),$(_OBJ))
 FINAL := $(_OBJ:.o=.html)
 _FINAL := $(addprefix $(TARGET_PATH),$(FINAL))
@@ -20,13 +20,15 @@ MACROS   := macros.m4
 TEMPLATE := template.html.m4
 $(TARGET_PATH)%.html : $(OBJ_PATH)%.o  $(MACROS) $(TEMPLATE)
 	@echo $<
-	m4 -P $(MACROS) $< $(TEMPLATE) > $@
-	# let's clutter the ../ directory
+	
+	@# Define a macro __PAGEURL to point to target
+	m4 -P $(MACROS) -D__PAGEURL=$(subst $(TARGET_PATH),,$@) $< $(TEMPLATE) > $@
+	@# let's clutter the ../ directory
 
 #cleaning up the metadata of jpeg images
 IMAGES := ../img/
 sanitize_metadata:  
-	exiftool -all= $(IMAGES)
+	exiftool -all= $(IMAGES) -v
 
 .PHONY: clean
 clean:

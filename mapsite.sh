@@ -16,9 +16,9 @@ while read p; do
   */ | *.html | *.htm)
     echo '<url><loc>'$p'</loc></url>' >> sitemap.xml
     ;;
-  *.png | *.jpg | *.css)
-	;;
-  #uh, nice url catch all
+ *.png | *.jpg | *.css)
+#    echo '<url><loc><image:image><image:loc>'$p'</image:loc></image:image></loc></url>' >> sitemap.xml
+  ;;
   *)
     echo '<url><loc>'$p'</loc></url>' >> sitemap.xml
     ;;

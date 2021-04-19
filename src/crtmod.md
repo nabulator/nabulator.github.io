@@ -103,4 +103,4 @@ that output at 15kz like the Commodore Amiga.
 [tanya]: https://elektrotanya.com
 
 
-TITLE('Modding a CRT')
+TITLE(RGB Mod a Consumer CRT)
