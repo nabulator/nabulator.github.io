@@ -185,7 +185,7 @@ my popsicle sticks. I use hot glue and it's not great. A thin sheet of neoprene
 rubber or even velcro would be preferable. It's a work in progress after all. 
 *Yes*, the wire contacts look like they could short and they did so I ended up 
 smacking some electric tape in there but heat shrink tubes or more hot glue 
-would have been just as jank solutions.
+would have been more permanent.
 
 
 ![underbelly](./img/pad2_electronics.jpg)
@@ -228,7 +228,7 @@ c. Teejusb arduino/teensey firmware on [github][3]
 d. Dom ITG's informational videos playlist on [youtube][5] 
 e. greentea's hack on cutting up FSR on [youtube][6] 
 e. Good source of FSR for US [shop][4]
-f. Jonx on the great DDR X cab [video][8]
+f. Jonx on the great DDR X2 cab [video][8]
 h. Stamina Nation Discord #pad [pubilc invite][9]
 
 [1]: https://github.com/Sereni/fsr-pad-guide
