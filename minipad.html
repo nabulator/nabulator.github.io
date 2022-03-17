@@ -219,7 +219,7 @@ require an external amplifier (as pictured above). A simple voltage divider is
 sufficient and used for each of the four sensors. A resistor value of 330 Ω is
 recommended but the exact value depends on the sensor and setup.</p>
 
-<p>What our circuit does is give us an output, V_o =  V_in * R_fsr / R.</p>
+<p>What our circuit does is give us an output, V_o =  V_in * R_fsr / (R + R_fsr) .</p>
 
 <ul>
 <li>The FSR roughly registers 100kΩ when inactive and 1kΩ when 1kg is actuated</li>
@@ -487,7 +487,7 @@ I had originally seen a <a href="https://www.youtube.com/watch?v=uB9hqS_yGLc">vi
     <hr/>
         <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2021
     <br>
-    <p>Last modified: 2021-04-19
+    <p>Last modified: 2022-03-16
  </p>
     </footer>
 </div>
