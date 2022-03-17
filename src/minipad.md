@@ -147,7 +147,7 @@ require an external amplifier (as pictured above). A simple voltage divider is
 sufficient and used for each of the four sensors. A resistor value of 330 Ω is
 recommended but the exact value depends on the sensor and setup. 
 
-What our circuit does is give us an output, V_o =  V_in * R_fsr / R. 
+What our circuit does is give us an output, V_o =  V_in * R_fsr / (R + R_fsr) . 
 
 - The FSR roughly registers 100kΩ when inactive and 1kΩ when 1kg is actuated
 - There is non-linear response which worsens as you increase the resistance, as
