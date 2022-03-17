@@ -98,6 +98,13 @@ It will probably work even better for things like home computers that run on 240
 that output at 15kz like the Commodore Amiga.
 
 ## Links
+
+a. RetroRGB speaks to getting the best signal from your game console [site][1]
+b. Long thread with many examples of CRT mod done and various troubleshooting
+[site][shmup]
+c. Grab your CRT schematics (if you're lucky) on [Electrotanya][tanya]
+
+
 [1]: https://www.retrorgb.com
 [shmup]: https://shmups.system11.org/viewtopic.php?f=6&t=56155
 [tanya]: https://elektrotanya.com
