@@ -1,0 +1,496 @@
+<!doctype html>
+
+
+
+
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Portable Travel Pad with FSR Sensors</title>
+
+        <meta name="google-site-verification" content="designing arcade style controllers and other random tech stuff">
+    
+    <meta name="title" content="Portable Travel Pad with FSR Sensors">
+    <meta name="description" content="I build a travel pad to travel and pad my website">
+    <meta name="keywords" content="EE, DIY, woodworking, hacking, bemani, arcade">
+    <meta name="author" content="nabulator">
+    <meta name="Copyright" content="CC-BY 4.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Portable Travel Pad with FSR Sensors" />
+    <meta property="og:description" content="I build a travel pad to travel and pad my website" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nabulator.com/minipad.html" />
+    <meta property="og:image" content="https://nabulator.com/img/pad2_banner.png" />
+
+    <link rel="stylesheet" href="./lolstyle.css">
+    
+</head>
+
+<body>
+<div>
+    <header>
+        </header>
+    <article>
+
+
+
+
+
+
+
+
+
+
+<a name="Travel-Pad"></a>
+<h1>Travel Pad</h1>
+
+<p>March 2021</p>
+
+<p>A full-sized dance pad can be a bit heavy and unwieldy so why not make a mini
+pad. Some people call this a <em>travel pad</em>, which is an acceptable name if you&rsquo;re
+already deep in the dance community. A quick search reveals that it&rsquo;s actually
+more commonly used to mean cloth pad used to change baby&rsquo;s diapers. Perhaps the
+term mini-pad is snappier and memorable.  :D</p>
+
+<p>Unlike a real pad, you can tuck it under your arm pits and carry it like a
+skateboard and ride it to the moon.  Portable and functional. Sure, it slips a
+bit during playing but nothing a few heavy bricks can&rsquo;t handle. Also, does no
+time travel. sorry~</p>
+
+<p><img src="./img/pad2_banner.png" alt="fake banner" /></p>
+
+<a name="Table-of-Contents"></a>
+<h1>Table of Contents</h1>
+
+<ol>
+<li><a href="#Introduction">Intro</a></li>
+<li><a href="#Frame">Frame</a>
+
+<ol>
+<li><a href="#Sensor-Mounts">Sensor Mounts</a></li>
+</ol>
+</li>
+<li><a href="#Electronics">Electronics</a>
+
+<ol>
+<li><a href="#Sensors">Sensors</a></li>
+<li><a href="#Circuits">Circuits</a></li>
+<li><a href="#Microcontroller">Microcontroller</a></li>
+</ol>
+</li>
+<li><a href="#Final-Impressions">Final Impressions</a></li>
+<li><a href="#Future-Work">Future Work</a></li>
+<li><a href="#Appendix">Appendix</a>
+
+<ol>
+<li><a href="#Links">Links</a></li>
+<li><a href="#Bill-of-Materials">Bill Of Materials</a></li>
+<li><a href="#Footnotes">Footnotes</a></li>
+</ol>
+</li>
+</ol>
+
+
+<a name="Introduction"></a>
+<h2>Introduction</h2>
+
+<p>There are so many existing resources on why you would be interested in using
+Force-Sensing Resistors. The technology is relatively new, being developed in
+1977 and manufactured from the 90s. The operation of the force depends on
+<em>quantum tunneling</em>. The main advantage of the sensor is its small size, its
+paper thin profile, its low cost and robust operating conditions and its high
+sensitivity.  Compared to the load cells
+used in <a href="openpad.html">openpad</a>, FSRs are easier to integrate into firmware
+with no more than a DC power line (5V) and a single resistor. <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+
+<p>One does not <em>have</em> to use FSRs for a mini pad. One early Travel Pad prototype in
+Rembrandt&rsquo;s <a href="https://docs.google.com/document/d/1Ho82WgAU57NnZQTG75v4WbRqosCPmwy7r1IAPUC4vxU/">Guide</a> uses original DDR rubber sensors and metal L-brackets.
+However, acquiring these parts may be tricky (finding a
+domestic supplier) and more expensive (FSRs are $5 a pop).</p>
+
+<p>My particular build uses FSR. These sensors are sensitive enough to pick up 10g
+of force. Reportedly, others have  derived a working pad by simply taping them
+to the floor, no strings attached. These kinds of minimal builds certainly &ldquo;do
+the job&rdquo; in terms of sensing not to mention the fact that one can achieve a high
+performance of play with them, but they don&rsquo;t provide the tactile feedback you
+get from a real pad.</p>
+
+<p>The goal of this build was to simply make a travel pad but also permit some
+flexibility in making adjustments in the future. It is, at its best, a prototype
+meant to permit further experimentation. All the important mechanical parts are
+serviceable in that I can arbitrary raise and lower panels, sensors and spacing.
+This is something arcade owners (or dance game aficionados) do on a regular
+basis anyways so it made sense to build it in as a mechanism. The software side also
+permits arbitrary threshold adjustments thanks to <a href="https://github.com/nabulator/fsr">Teejusb&rsquo;s UI and firmware</a>.</p>
+
+<p>This write-up follows from my own experiments and is neither definitive nor
+comprehensive in its coverage of the topic, although there is an active community
+with plenty of detailed guides and information points linked below.</p>
+
+<a name="Frame"></a>
+<h2>Frame</h2>
+
+<p>Being a travel pad means that the frame is smaller and easier to build. I made
+mine from 2x4 lumber, which is the cheapest one at my local hardware shop. My
+dimensions are just a bit smaller than those of Rembrandt, but the width of the
+panels are designed to be the same as the width of a flat 2x4 block, which
+is about 3 &frac12;". Thus, the construction of the base very simple. Dowel joinery is
+used with a jig and base is glued. A full sized solid &frac34;" panel is used as the
+center. This center was conveniently left over from the first pad I made. It&rsquo;s
+important that the base you fabricate lies flat and does not wobble on the
+surface you intend to play on. Alternatively, you can use your pad over some
+foam pads or other compressing surface, but this workaround detracts from
+its portability.</p>
+
+<p><img src="./img/pad2_justbase.jpg" alt="Bare pad with just the center panel" /></p>
+
+<p>I use screw inserts that drill directly into the wood to mount my center
+panel. The center panel is countersunk and uses flat head machine screws (#10-24
+or M6, whatever is lying around). I had previously used special bits to tap
+threads directly into the wood itself but I wanted to try inserts this time.
+It&rsquo;s not clear if one is better than the other for this application but inserts
+are faster to install.</p>
+
+<a name="Sensor-Mounts"></a>
+<h3>Sensor Mounts</h3>
+
+<p>I use sensor mounts bring the sensor closer to the surface since my panels are
+only 3/8" or ~10mm while my center panel rests on top of the base and protrudes
+&frac34;" outwards. Using some plywood and some cheap craft foam did the trick to
+make give me arbitrary spacing adjustment. <a href="https://www.youtube.com/watch?v=Z_x7HFaBBUg&amp;list=PL2vUwLUVuyIy4CD8DEwS7oZ_Y41vyYWW/">Dominick</a> takes a similar approach
+but uses plastic spacers which are laboriously hand-cut. Props to him for
+that.</p>
+
+<p>I wanted adjustable sensor heights because it means I can pretend I am playing
+on DDR 3rd Mix cabinet or SMX cabs. Having played on both, I can say I like the
+feeling of both! As a relevant side note, I would like to mention that Zetorux
+likes the panels to be 3 credit cards lower than the center, which replicates
+the kind of feeling you&rsquo;d get on a DDR X2 cabinet <a href="http://nabulator.com/jonx_padthick.mp4">[video]</a>. Flush or raised
+panels are also possible.</p>
+
+<p><img src="./img/pad2_baseraisers.jpg" alt="Sensor mounts" /></p>
+
+<p>The FSRs have an adhesive on the bottom so I can tape them. A small wooden
+popsicle-sized stick is placed above the FSR to make sure <em>only the active
+region</em> is contacted. If your popsicle stick is uneven, or if you make custom
+thickness, length wooden contacts, you <strong>must</strong> make sure they make a flat,
+uniform contact across the <em>active region</em> of the FSR! If your shims are larger
+than the area, your sensors will <strong>not</strong> actuate!</p>
+
+<a name="Electronics"></a>
+<h2>Electronics</h2>
+
+<p>Pretty straightforward compared to Load cells due to simpler circuits.</p>
+
+<a name="Sensors"></a>
+<h3>Sensors</h3>
+
+<p>The sensor form factor I ordered of the
+<a href="https://buyinterlinkelectronics.com/">Interlink Shop</a> is the <strong>FSR Model 408 500mm</strong> length with tab terminators.
+The substrate the sensor is printed on is rather thin and bendable. Care is
+needed to ensure the two contacts don&rsquo;t short &ndash; a proper connector is probably
+the best option. Since Interlink failed to send me sensors with the female
+terminator (as I had specified in my order), I soldered the damn thing directly
+to wires. There exists a method to terminate the sensors with electric tape but
+I would not recommend it. <sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup></p>
+
+<p>There are couple of <a href="https://www.digikey.com/en/ptm/i/interlink-electronics/force-sensing-resistors--best-practices/tutorial">manufacturer recommendations</a>. But I can give you the
+<strong>thick</strong> to <strong>thin</strong>:</p>
+
+<ul>
+<li>Use a firm and flat mounting surface</li>
+<li>Use a soft rubber or springy material to actuate</li>
+<li>Do <strong>NOT</strong> bend, dent or kink</li>
+</ul>
+
+
+<a name="Circuit"></a>
+<h3>Circuit</h3>
+
+<p><img src="./img/fsr_curves.png" alt="Some curves showing force vs resistance and voltage reading vs force input for
+various resistor types" /></p>
+
+<p style="text-align:center;"> Some relevant graphs for force, resistance and voltage readings stolen from the manufacturer</p>
+
+<p>Unlike the load cells which require an amplifier, using FSRs don&rsquo;t strictly
+require an external amplifier (as pictured above). A simple voltage divider is
+sufficient and used for each of the four sensors. A resistor value of 330 Ω is
+recommended but the exact value depends on the sensor and setup.</p>
+
+<p>What our circuit does is give us an output, V_o =  V_in * R_fsr / R.</p>
+
+<ul>
+<li>The FSR roughly registers 100kΩ when inactive and 1kΩ when 1kg is actuated</li>
+<li>There is non-linear response which worsens as you increase the resistance, as
+a result of the equation above</li>
+</ul>
+
+
+<p>Below, you can see from the resistor color codes that I am using 470Ω, which is
+a tad bit too sensitive and nonlinear for software <a href="https://github.com/nabulator/fsr">adjustable thresholds</a>.</p>
+
+<p><img src="./img/pad2_voltage_divider.jpg" alt="A simple voltage divider" /></p>
+
+<p>Perfboards are used because I have those lying around and bread boards are
+finicky. This way I can mount them upside down on the bottom of my pad.
+JST XH connectors are used for quick disconnects. Still looking for a nice
+crimping tool to help me make better connectors. Using pliers is not good
+practice and has caused some problems in connectivity.</p>
+
+<p><img src="./img/pad2_transistors.jpg" alt="Some BJT switches" />
+Using some BJT (TIP-121) transistors as switches for the lights. I cut up a 5V
+1A LED strip into four slices and those are JST XH terminated as well. They are
+externally powered by a different USB connector that is dedicated for power.
+These are more useful for debugging pad condition in real time.</p>
+
+<a name="Microcontroller"></a>
+<h3>Microcontroller</h3>
+
+<p>Wiring is not great, a hole routes to the bottom of the panel where are the
+boards are mounted.</p>
+
+<p><img src="./img/pad2_wiring.jpg" alt="Wiring" /></p>
+
+<p>Arduino Leonardo, Teejusb&rsquo;s code. Using my own jank DIY cables to connect to the
+arduino which have been bolted the bottom of the center panel. Hopefully,
+vibration is not an issue. <em>Yes</em>, I am no longer using scotch tape to secure
+my popsicle sticks. I use hot glue and it&rsquo;s not great. A thin sheet of neoprene
+rubber or even velcro would be preferable. It&rsquo;s a work in progress after all.
+<em>Yes</em>, the wire contacts look like they could short and they did so I ended up
+smacking some electric tape in there but heat shrink tubes or more hot glue
+would have been more permanent.</p>
+
+<p><img src="./img/pad2_electronics.jpg" alt="underbelly" />
+The underbelly which is exposed at the moment.</p>
+
+<a name="Final-Impressions"></a>
+<h2>Final Impressions</h2>
+
+<p><img src="./img/pad2_final.jpg" alt="The final pad" /></p>
+
+<p>It works well for stamina and timing, if your movements are minimal. Again, the
+primary issue is the small size of the base and panels, which can cause
+wobbling if you either step near the edges of the pad causing it to tilt and
+shift during play. The supporting panels aren&rsquo;t glued into place, so the pads
+are also rather noisy compared to real arcade panels (but less so compared to
+pads that aren&rsquo;t balanced &ndash; looking at <em>you</em> 8otb machine).</p>
+
+<p>Playing on carpet is annoying but less so than tiled stone flooring, due to the
+excessive movement. Still, not bad for testing out FSRs and finding a
+comfortable mechanical adjustments for a desirable final pad build. The
+experiment gives me the confidence and experience needed to go full out on the
+next prototype.</p>
+
+<a name="Future-Work"></a>
+<h2>Future Work</h2>
+
+<p>Building a full sized pads with FSRs, using multiple FSRs, maybe custom PCB,
+maybe analog MUX, color RGB lights, modifying firmware for saving levels maybe
+in the EEPROM or it&rsquo;s own flash code somehow. Acrylic / polycarbonate panels
+with art design, a proper bar (welding?)</p>
+
+<p>Well, everything short of buying an actual manufactured arcade cabinet and pads.
+:D</p>
+
+<a name="Appendix"></a>
+<h2>Appendix</h2>
+
+<a name="Links"></a>
+<h3>Links</h3>
+
+<ol type="a">
+<li>Sereni&rsquo;s Mechanical FSR Guide on <a href="https://github.com/Sereni/fsr-pad-guide">github</a></li>
+<li>Renbrandt&rsquo;s Travel Pad Guide
+<a href="https://docs.google.com/document/d/1Ho82WgAU57NnZQTG75v4WbRqosCPmwy7r1IAPUC4vxU/">google docs</a></li>
+<li>Teejusb arduino/teensey firmware on <a href="https://github.com/nabulator/fsr">github</a></li>
+<li>Dom ITG&rsquo;s informational videos playlist on <a href="https://www.youtube.com/watch?v=Z_x7HFaBBUg&amp;list=PL2vUwLUVuyIy4CD8DEwS7oZ_Y41vyYWW/">youtube</a></li>
+<li>greentea&rsquo;s hack on cutting up FSR on <a href="https://www.youtube.com/watch?v=uB9hqS_yGLc">youtube</a></li>
+<li>Good source of FSR for US <a href="https://buyinterlinkelectronics.com/">shop</a></li>
+<li>Jonx on the great DDR X2 cab <a href="http://nabulator.com/jonx_padthick.mp4">video</a></li>
+<li>Stamina Nation Discord #pad <a href="https://discord.gg/tKaVTMnz">pubilc invite</a></li>
+</ol>
+
+
+<a name="Bill-of-Materials"></a>
+<h3>Bill of Materials</h3>
+
+<p>By popular request, I have complied this table for reference. Note it does not
+include any tools I have used including woodworking tools, soldering irons,
+crimpers, etc. Because I am lazy, I prioritized using what I had accumulated
+from other projects or part bins instead of buying a better more specialized
+part.</p>
+
+<p>I hesistate to provide detailed instructions as I want to inspire rather than
+instruct. They are definitely alternative and <em>better</em> materials, methods and so
+forth, to arrive at an ideal pad. Nonetheless, for people who are just getting
+started, this is meant to serve as general guidance. As such, I have ballparked
+the prices to give you a reasonable way to play catch in the ball park.</p>
+
+<table>
+<thead>
+<tr>
+<th> Part </th>
+<th> Source </th>
+<th style="text-align:right;"> Cost </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 2x4  </td>
+<td> local hardware </td>
+<td style="text-align:right;"> 10 </td>
+</tr>
+<tr>
+<td> plywood  </td>
+<td> local hardware </td>
+<td style="text-align:right;"> 10 </td>
+</tr>
+<tr>
+<td> #10-24 screws  </td>
+<td> McMaster Carr </td>
+<td style="text-align:right;"> 8 </td>
+</tr>
+<tr>
+<td> #10-24 screw wood insert  </td>
+<td> McMaster Carr </td>
+<td style="text-align:right;"> 7 </td>
+</tr>
+<tr>
+<td> foam sheet  </td>
+<td> art store </td>
+<td style="text-align:right;"> 5 </td>
+</tr>
+<tr>
+<td> wooden fluted dowels </td>
+<td> local hardware </td>
+<td style="text-align:right;"> 4 </td>
+</tr>
+<tr>
+<td> center panel &frac34;" wood slab </td>
+<td> localhardware </td>
+<td style="text-align:right;"> 7 </td>
+</tr>
+<tr>
+<td> Side panel acrylic 3/16" </td>
+<td> junk </td>
+<td style="text-align:right;"> 20? </td>
+</tr>
+<tr>
+<td> FSR sensors </td>
+<td> interlink </td>
+<td style="text-align:right;"> 25 </td>
+</tr>
+<tr>
+<td> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td> arduino leonardo </td>
+<td> amazon </td>
+<td style="text-align:right;"> 10 </td>
+</tr>
+<tr>
+<td> header pins 0.1" pitch </td>
+<td> digikey </td>
+<td style="text-align:right;"> 3 </td>
+</tr>
+<tr>
+<td> JST XH 2pin set </td>
+<td> aliexpress </td>
+<td style="text-align:right;"> 7 </td>
+</tr>
+<tr>
+<td> resistors </td>
+<td> digikey </td>
+<td style="text-align:right;"> 1 </td>
+</tr>
+<tr>
+<td> Transistors TIP 121 </td>
+<td> digikey </td>
+<td style="text-align:right;"> 4 </td>
+</tr>
+<tr>
+<td> led strip </td>
+<td> aliexpress </td>
+<td style="text-align:right;"> 4 </td>
+</tr>
+<tr>
+<td> protoboard </td>
+<td> aliexpress </td>
+<td style="text-align:right;"> 5 </td>
+</tr>
+<tr>
+<td> wire (22 gauge) </td>
+<td> ebay </td>
+<td style="text-align:right;"> 18 </td>
+</tr>
+</tbody>
+</table>
+
+
+<p><strong>Total: ~150</strong></p>
+
+<p>In addition to these materials, you may find it helpful to have something that
+can / know someone who can:</p>
+
+<ul>
+<li>cuts wood / plastic</li>
+<li>drills holes</li>
+<li>planes wood</li>
+<li>glues wood</li>
+<li>build circuits</li>
+<li>installs and removes screws</li>
+<li>measures voltages and electrical connectivity</li>
+</ul>
+
+
+<a name="Footnotes"></a>
+<h3>Footnotes</h3>
+
+<p>
+
+</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:1">
+I know that electronic piano keyboards have pressure sensitivity detection
+   to simulate loudness dynamics of a real piano&rsquo;s hammer action &ndash; through it&rsquo;s
+   strangely titled <em>velocity</em>. Turns out these keyboards don&rsquo;t have a singular
+   sensitivity sensor to acquire this data. Instead, there are two contacts in a
+   single key which are placed at different distances from the receiver. Thus,
+   the firmware literally measures the velocity of the strike by taking the
+   different in time and assigning the Note trigger ON a velocity value based on
+   that timing difference. Needless to say, this probably won&rsquo;t give us what
+   dance players are looking for, a sharp hysteresis curve.<a href="#fnref:1" rev="footnote">&#8617;</a></li>
+<li id="fn:2">
+I had originally seen a <a href="https://www.youtube.com/watch?v=uB9hqS_yGLc">video</a> which Youtuber greenTea cuts these
+    long sensors into several smaller ones. He then shoves two cables and duct
+    tapes them into place in a somewhat jank way. I found that this method of
+    termination does not guarantee a strong contact between the wire and sensor. In
+    other words, the electrical connection is a weak one and prone to
+    disconnection. A better way to attach the FSR.<a href="#fnref:2" rev="footnote">&#8617;</a></li>
+</ol>
+</div>
+
+    </article>
+    <aside>
+<!--      <h3>Other Pages</center>
+      <ul> <li> <a href="openpad.html"> Stepmania Pad </a></li>
+      <li><a href="beatmania.html"> BMS Controller </a> </li> </ul>
+-->
+    </aside> 
+    <footer>
+    <hr/>
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator.com 2021
+    <br>
+    <p>Last modified: 2021-04-19
+ </p>
+    </footer>
+</div>
+
+</body>
+</html>

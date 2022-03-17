@@ -8,6 +8,7 @@ FINAL := $(_OBJ:.o=.html)
 _FINAL := $(addprefix $(TARGET_PATH),$(FINAL))
 
 all : $(_FINAL)
+	mkdir obj
 
 # We use .o files to represent html output
 FLAGS := toc,footnote
