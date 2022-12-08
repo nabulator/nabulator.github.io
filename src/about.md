@@ -7,9 +7,9 @@ others. But at the beginning, the net was decentralized and fragmented and heter
 
 Just as it is important in real life to form an identity to which to attach yourself, I
 have deemed this part of the internet, or at least this domain name, or even just the name
-"nabulator" for myself. The name itself is just a sequence of letters and is by no means
+"davleop" for myself. The name itself is just a sequence of letters and is by no means
 unique, just like real names. I am sure there are many other people who call themselves
-"nabulator" or use it's name but not everyone out there is me. 
+"davleop" or use it's name but not everyone out there is me. 
 
 The advantage of making your own space is you get to make your own rules. Most people
 don't read the Privacy Policy or Terms of Service of a site, which are contracts of sorts.
@@ -21,6 +21,6 @@ itself.
 It's my hope that what little footprint I may leave behind in this endless digital fabric
 will be interesting to someone or something in someway or somehow. 
 
---nabulator
+--davleop
 
 March 2021

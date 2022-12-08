@@ -233,12 +233,12 @@ h. Stamina Nation Discord #pad [pubilc invite][9]
 
 [1]: https://github.com/Sereni/fsr-pad-guide
 [2]: https://docs.google.com/document/d/1Ho82WgAU57NnZQTG75v4WbRqosCPmwy7r1IAPUC4vxU/
-[3]: https://github.com/nabulator/fsr
+[3]: https://github.com/davleop/fsr
 [4]: https://buyinterlinkelectronics.com/
 [5]: https://www.youtube.com/watch?v=Z_x7HFaBBUg&list=PL2vUwLUVuyIy4CD8DEwS7oZ_Y41vyYWW/
 [6]: https://www.youtube.com/watch?v=uB9hqS_yGLc
 [7]: https://www.digikey.com/en/ptm/i/interlink-electronics/force-sensing-resistors--best-practices/tutorial
-[8]: http://nabulator.com/jonx_padthick.mp4
+[8]: http://davleop.com/jonx_padthick.mp4
 [9]: https://discord.gg/tKaVTMnz 
 
 ### Bill of Materials

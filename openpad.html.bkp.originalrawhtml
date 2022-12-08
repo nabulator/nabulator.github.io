@@ -36,7 +36,7 @@
 
     <p>
     The source code and documentation needed to reproduce this project is available on the 
-    Openpad project on <a href="https://github.com/nabulator/openpad">Github</a> 
+    Openpad project on <a href="https://github.com/davleop/openpad">Github</a> 
     originally pioneered by finalarcadia. I have forked and added my own changes. Maybe
     if will submit a PR sometime in the future. Since the details of build are available 
     externally, I will focus on documenting the
@@ -50,6 +50,6 @@
       <li><a href="iidx-ctrl.html"> BMS Controller </a> </li> </ul>
 
     <hr>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> nabulator 2020
+    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"></a>All content on this domain (unless otherwise specified) is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> davleop 2020
   </body>
 </html>

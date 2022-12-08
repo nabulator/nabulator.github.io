@@ -2,7 +2,7 @@
 
 #originally from https://www.lostsaloon.com/technology/how-to-create-an-xml-sitemap-using-wget-and-shell-script/
 
-sitedomain=https://nabulator.com
+sitedomain=https://davleop.com
 wget --spider --recursive --level=inf --no-verbose --output-file=/tmp/linklist.txt $sitedomain
 grep -i URL /tmp/linklist.txt | awk -F 'URL:' '{print $2}' | awk '{$1=$1};1' | awk '{print $1}' | sort -u | sed '/^$/d' > /tmp/sortedurls.txt
 header='<?xml version="1.0" encoding="UTF-8"?><urlset
